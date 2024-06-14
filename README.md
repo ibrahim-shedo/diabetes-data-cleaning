@@ -1,6 +1,4 @@
-Data Cleaning Project
-Ibrahim Mohamed Shedoh
-14/06/2024
+
 This README file provides an overview of the data cleaning project, detailing the steps taken to clean the dataset and prepare it for further analysis.
 
 Project Overview
