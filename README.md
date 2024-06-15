@@ -8,19 +8,19 @@ Libraries Used
 pandas: For data manipulation and analysis.
 seaborn: For data visualization, particularly for identifying outliers.
 Data Cleaning Steps
-Import Necessary Libraries
+Import Necessary Libraries. 
 
 
 python
 Copy code
 import pandas as pd
 import seaborn as sns
-Read the Data File
+Read the Data File. 
 
 python
 Copy code
 df = pd.read_csv("diabetes_unclean.csv")
-Initial Data Inspection
+Initial Data Inspection. 
 
 Display the first record of the data
 python
@@ -34,13 +34,13 @@ Display the number of columns
 python
 Copy code
 df.columns
-Rename Columns
+Rename Columns. 
 
 Rename the column 'No_Pation' to 'Pation_No'
 python
 Copy code
 df.rename(columns = {"No_Pation":"Pation_No"}, inplace=True)
-Handling Missing Values
+Handling Missing Values. 
 
 Check for missing values
 python
@@ -56,7 +56,7 @@ python
 Copy code
 df1 = df.dropna()
 df1.isnull().sum()
-Data Information and Aggregation
+Data Information and Aggregation. 
 
 Get information about the dataset
 python
@@ -66,7 +66,7 @@ Aggregate data by 'CLASS'
 python
 Copy code
 df1.groupby("CLASS")["CLASS"].agg("count")
-Cleaning Categorical Data
+Cleaning Categorical Data. 
 
 Check unique values in the 'CLASS' column
 python
@@ -78,7 +78,7 @@ Copy code
 df1["CLASS"] = df1["CLASS"].str.replace("Y ", "Y")
 df1["CLASS"] = df1["CLASS"].str.replace("N ", "N")
 df1["CLASS"].unique()
-Handling Outliers
+Handling Outliers. 
 
 Check for outliers in 'Cr' column using boxplot
 python
@@ -94,7 +94,7 @@ Check for outliers in 'HbA1c' column
 python
 Copy code
 sns.boxplot(df1["HbA1c"])
-Removing Duplicates
+Removing Duplicates. 
 
 Check for duplicate values
 python
@@ -105,7 +105,7 @@ python
 Copy code
 df3 = df2.drop_duplicates()
 df3.duplicated().sum()
-Save Cleaned Data
+Save Cleaned Data. 
 
 Save the cleaned data to a new CSV file
 python
