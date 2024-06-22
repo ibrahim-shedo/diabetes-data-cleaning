@@ -1,5 +1,5 @@
 
-This README file provides an overview of the data cleaning project, detailing the steps taken to clean the dataset and prepare it for further analysis.
+This  file provides an overview of the data cleaning project, detailing the steps taken to clean the dataset and prepare it for further analysis.
 
 Project Overview
 The goal of this project is to clean a diabetes dataset, handling missing values, correcting inconsistencies, and removing outliers and duplicates. The cleaned dataset is then saved as a new CSV file.
