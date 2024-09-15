@@ -1,27 +1,29 @@
+# Data Cleaning Project: Diabetes Dataset
 
-This  file provides an overview of the data cleaning project, detailing the steps taken to clean the dataset and prepare it for further analysis.
+This file provides an overview of the data cleaning project, detailing the steps taken to clean the dataset and prepare it for further analysis.
 
-Project Overview
-The goal of this project is to clean a diabetes dataset, handling missing values, correcting inconsistencies, and removing outliers and duplicates. The cleaned dataset is then saved as a new CSV file.
+## Project Overview
+The goal of this project is to clean a diabetes dataset by handling missing values, correcting inconsistencies, and removing outliers and duplicates. The cleaned dataset is then saved as a new CSV file.
 
-Libraries Used
-pandas: For data manipulation and analysis.
-seaborn: For data visualization, particularly for identifying outliers.
-Data Cleaning Steps
-Import Necessary Libraries. 
+---
 
+## Libraries Used
+- **pandas**: For data manipulation and analysis.
+- **seaborn**: For data visualization, particularly for identifying outliers.
 
-python
-Copy code
+---
+
+## Data Cleaning Steps
+
+### 1. Import Necessary Libraries
+```python
 import pandas as pd
 import seaborn as sns
-Read the Data File. 
-
+2. Read the Data File
 python
 Copy code
 df = pd.read_csv("diabetes_unclean.csv")
-Initial Data Inspection. 
-
+3. Initial Data Inspection
 Display the first record of the data
 python
 Copy code
@@ -34,14 +36,12 @@ Display the number of columns
 python
 Copy code
 df.columns
-Rename Columns. 
-
+4. Rename Columns
 Rename the column 'No_Pation' to 'Pation_No'
 python
 Copy code
 df.rename(columns = {"No_Pation":"Pation_No"}, inplace=True)
-Handling Missing Values. 
-
+5. Handling Missing Values
 Check for missing values
 python
 Copy code
@@ -56,8 +56,7 @@ python
 Copy code
 df1 = df.dropna()
 df1.isnull().sum()
-Data Information and Aggregation. 
-
+6. Data Information and Aggregation
 Get information about the dataset
 python
 Copy code
@@ -66,21 +65,19 @@ Aggregate data by 'CLASS'
 python
 Copy code
 df1.groupby("CLASS")["CLASS"].agg("count")
-Cleaning Categorical Data. 
-
+7. Cleaning Categorical Data
 Check unique values in the 'CLASS' column
 python
 Copy code
 df["CLASS"].unique()
-Replace inconsistent values in 'CLASS' column
+Replace inconsistent values in the 'CLASS' column
 python
 Copy code
 df1["CLASS"] = df1["CLASS"].str.replace("Y ", "Y")
 df1["CLASS"] = df1["CLASS"].str.replace("N ", "N")
 df1["CLASS"].unique()
-Handling Outliers. 
-
-Check for outliers in 'Cr' column using boxplot
+8. Handling Outliers
+Check for outliers in the 'Cr' column using a boxplot
 python
 Copy code
 sns.boxplot(df1["Cr"])
@@ -90,12 +87,11 @@ Copy code
 max_cr = df1["Cr"].quantile(0.995)
 df2 = df1[df1["Cr"] < max_cr]
 sns.boxplot(df2["Cr"])
-Check for outliers in 'HbA1c' column
+Check for outliers in the 'HbA1c' column
 python
 Copy code
 sns.boxplot(df1["HbA1c"])
-Removing Duplicates. 
-
+9. Removing Duplicates
 Check for duplicate values
 python
 Copy code
@@ -105,8 +101,7 @@ python
 Copy code
 df3 = df2.drop_duplicates()
 df3.duplicated().sum()
-Save Cleaned Data. 
-
+10. Save Cleaned Data
 Save the cleaned data to a new CSV file
 python
 Copy code
